@@ -10,6 +10,8 @@ function cardCounter(card) {
   
   return `${count} ${assistMsg}`;
 }
+// The more elegant approach to the long else if line is [10, "J", "Q", "K", "A"].includes(card) which I'll learn later in Array modules
+
 console.log(cardCounter(7));
 console.log(cardCounter(8));
 console.log(cardCounter(9));
