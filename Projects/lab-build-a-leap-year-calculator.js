@@ -1,5 +1,3 @@
-** start of script.js **
-
 console.log("Leap Year Calculator\n")
 
 function isLeapYear(year) {
@@ -23,6 +21,3 @@ console.log(result)
 year = 2024;
 result = isLeapYear(year);
 console.log(result)
-
-** end of script.js **
-
