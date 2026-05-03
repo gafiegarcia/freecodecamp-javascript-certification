@@ -1,3 +1,7 @@
+## asap
+
+- [ ] review [this lab project](Projects/lab-build-a-playlist-remix-engine.js) — ask AI for more elegant approaches
+
 ## GitHub Pages
 
 - [ ] create a page showcasing all JavaScript Certification projects solutions, just like how I showcased [fCC RWD projects](http://gafiegarcia.github.io/freecodecamp-responsive-web-design-projects)
