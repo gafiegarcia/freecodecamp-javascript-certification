@@ -1,6 +1,6 @@
 ## asap
 
-- [ ] review [this lab project](Projects/lab-build-a-playlist-remix-engine.js) — ask AI for more elegant approaches
+- [x] review [this lab project](Projects/lab-build-a-playlist-remix-engine.js) — ask AI for more elegant approaches
 
 ## GitHub Pages
 
