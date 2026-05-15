@@ -1,0 +1,56 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  padding: 1.5rem 2.5rem;
+  box-shadow: -1px 1px 1.75rem #dadada;
+}
+
+h1 {
+  font-size: 1.75em;
+  font-weight: 600;
+}
+
+.item-list {
+  list-style-type: none;
+  padding: 0 1rem;
+  margin: 2.75rem 0;
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0.25rem;
+    border-bottom: 1px solid #dadada;
+  }
+}
+
+.logo {
+  width: 1rem;
+  aspect-ratio: 1/1;
+  vertical-align: center;
+  margin-right: 0.125rem;
+}
+
+.favorite-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  border-radius: 8px;
+}
+
+.filled {
+  color: #ff0033;
+}
+
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
