@@ -1,0 +1,40 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Inconsolata, monospace;
+  padding: 1rem 2rem;
+}
+
+main {
+  max-width: 69ch;
+  margin: 0 auto;
+  display: grid;
+  text-align: center;
+  h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 3rem;
+  }
+  textarea {
+    margin: auto;
+    width: 70%;
+    padding: 1rem;
+    resize: none;
+    background-color: #181818;
+    border: 1px solid #333;
+    color: inherit;
+    font-size: 0.875rem;
+    &:focus-visible {
+      outline: none;
+      border-color: #555;
+      box-shadow: 0 0 0.75rem 0.375rem #333;
+    }
+  }
+  p {
+    background-color: #181818;
+    border: 1px solid #333;
+    width: fit-content;
+    padding: 1rem;
+    margin: 2rem auto;
+  }
+}
