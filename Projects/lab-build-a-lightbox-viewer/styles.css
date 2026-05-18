@@ -1,0 +1,583 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --transition-speed-fast: 0.16s;
+  --black: #0C1014;
+  --light-gray-1: hsl(210, 12%, 95%);
+  --light-gray-2: hsl(210, 12%, 92%);
+  --gray: hsl(208, 3%, 59%);
+  --border-thin: 1px solid #0000000c;
+  --nav-height: 3.125rem;
+  --header-height: 3.5rem;
+  --nav-icon-size: 1.375rem;
+  --nav-icon-size-l: 1.875rem;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* never again will I not include this anti-annoying reset */
+img, picture, video, canvas, svg, iframe, embed, object {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+/* end of reset and base */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Inter, "Inter Variable", "Segoe UI", Arial, sans-serif;
+  font-size: 0.875em;
+  line-height: 1.2;
+  color: var(--black);
+}
+
+body > header {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  justify-items: center;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  height: var(--header-height);
+  /* border-bottom: var(--border-thin); */
+  svg {
+    width: 1.25rem;
+    height: auto;
+  }
+  .instagrumph-logo {
+    user-select: none;
+    font-family: Cookie, cursive;
+    font-size: 2em;
+    margin-top: 0.125rem;
+  }
+}
+
+body > header nav {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: var(--nav-height);
+  background-color: #fff;
+  border-top: var(--border-thin);
+}
+
+.fake-nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  align-items: center;
+}
+
+.fake-nav-link {
+  img, svg {
+    width: var(--nav-icon-size-l);
+    height: 100%;
+  }
+  &.reels {
+    scale: 0.8;
+  }
+  &.inbox {
+    rotate: -30deg;
+    translate: 0 -0.15rem;
+    position: relative;
+    &::after {
+      content: "67";
+      position: absolute;
+      top: 0.375rem;
+      right: -0.25rem;
+      rotate: 30deg;
+      background-color: rgb(255, 0, 47);
+      color: #fff;
+      font-size: 0.625em;
+      font-weight: 600;
+      padding: 0.1875rem;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+  }
+  &.github {
+    svg {
+      border-radius: 50%;
+      transform: scale(100%) translateY(0);
+      padding: 0.25rem;
+      transition-property: transform, color, background-color;
+      transition-duration: 0.4s;
+      transition-timing-function: linear(0, 0.249 3.2%, 0.475 6.6%, 0.663 10%, 0.827 13.6%, 0.896 15.4%, 0.961 17.3%, 1.017 19.2%, 1.069 21.2%, 1.112 23.2%, 1.15 25.3%, 1.181 27.4%, 1.207 29.6%, 1.22 31.1%, 1.232 32.7%, 1.24 34.3%, 1.246 36%, 1.249 37.7%, 1.25 39.5%, 1.248 41.4%, 1.243 43.4%, 1.23 46.8%, 1.21 50.6%, 1.183 54.7%, 1.117 64%, 1.088 68.4%, 1.06 73.1%, 1.038 77.6%, 1.02 82.7%, 1.008 87.8%, 1.002 93.2%, 1);
+      &:hover {
+        transform: scale(350%) translateY(-0.4375rem);
+        color: hsl(210, 80%, 53%);
+        background-color: #fff;
+      }
+    }
+
+  }
+}
+
+main {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+}
+
+/* Account Header */
+main > header {
+  display: grid;
+  grid-template-areas:
+  "profile-picture account-username"
+  "profile-picture account-stats"
+  "account-name account-name"
+  "account-bio account-bio"
+  "account-link account-link"
+  "followed-by followed-by"
+  "account-ctas account-ctas"
+  "account-tabs account-tabs";
+  grid-template-columns: min-content 1fr;
+  column-gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2px;
+  padding: 0 1rem;
+  width: calc(400px + 25vw);
+  max-width: 100%;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  main > header {
+    grid-template-areas:
+    "profile-picture account-username"
+    "profile-picture account-name"
+    "profile-picture account-stats"
+    "account-bio account-bio"
+    "account-link account-link"
+    "followed-by followed-by"
+    "account-ctas account-ctas"
+    "account-tabs account-tabs";  
+  }
+}
+
+@media (min-width: 1200px) {
+  main > header {
+    grid-template-areas:
+    "profile-picture account-username"
+    "profile-picture account-name"
+    "profile-picture account-stats"
+    "profile-picture account-bio"
+    "profile-picture account-link"
+    "profile-picture followed-by"
+    "account-ctas account-ctas"
+    "account-tabs account-tabs";  
+  }
+}
+
+.profile-picture {
+  --pp-size: 5rem;
+  grid-area: profile-picture;
+  background-color: #0A0A23;
+  border-radius: 50%;
+  position: relative;
+  &:hover {
+    &::before {
+      rotate: 360deg;
+    }
+  }
+  svg {
+    aspect-ratio: 1/1;
+    width: 100vw;
+    max-width: var(--pp-size);
+    object-fit: cover;
+    padding: 0.75rem;
+  }
+  &::before {
+    --story-offset: 8%;
+    rotate: 0deg;
+    transition: rotate 0.5s ease;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(-1 * (var(--story-offset)));;
+    left: calc(-1 * (var(--story-offset)));
+    content: "";
+    background-image: conic-gradient(#D300C5 12.5%, #FF0E5E 37.5%, #FFC800 62.5%, #FF2D43 87.5%, #D300C5 112.5%);
+    width: calc(var(--pp-size) + calc(var(--story-offset) * 2));
+    aspect-ratio: 1/1;
+    /* slop alert! below */
+    --thickness: 3px;
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--thickness)),
+      #000  calc(100% - var(--thickness))
+    );
+    mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--thickness)),
+      #000  calc(100% - var(--thickness))
+    );
+    /*  */
+  }
+}
+
+@media (min-width: 600px) {
+  .profile-picture {
+    --pp-size: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile-picture {
+    --pp-size: 8rem;
+  }
+}
+
+.account-username {
+  grid-area: account-username;
+  h1 {
+    font-size: 1em;
+    display: inline;
+  }
+  svg {
+    margin-left: 0.5rem;
+    display: inline;
+    vertical-align: middle;
+    width: 1rem;
+    height: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .account-username {
+    font-size: 1.75em;
+    svg {
+      width: 1.25rem;
+    }
+  }
+}
+
+.account-name {
+  grid-area: account-name;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  .account-name {
+    margin-top: 0.375rem;
+    font-weight: 400;
+  }
+}
+
+.account-stats {
+  grid-area: account-stats;
+  display: flex;
+  column-gap: 2rem;
+  line-height: 1.1;
+  margin-top: 1rem;
+  .account-stat {
+    /* display: grid; */
+    span {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .account-stats {
+    column-gap: 1rem;
+    margin-top: 1rem;
+    .account-stat > span {
+      display: inline;
+    }
+  }
+}
+
+.account-bio {
+  grid-area: account-bio;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 600px) {
+  .account-bio {
+    margin-top: 1.5rem;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .account-bio {
+    margin-top: 1rem;
+  }
+} */
+
+.account-link {
+  grid-area: account-link;
+  display: flex;
+  gap: 0.25rem;;
+  text-decoration: none;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  svg {
+    width: 1.125rem;
+    height: auto;
+    vertical-align: top;
+  }
+}
+
+.followed-by {
+  grid-area: followed-by;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.followed-by-logos {
+  display: flex;
+}
+
+.followed-by-logo {
+  z-index: 1;
+  position: relative;
+  padding: 0.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  img, svg {
+    object-fit: contain;
+    max-height: 1.75rem;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+  &:nth-child(2) {
+    left: -0.75rem;
+  }
+  &:last-child {
+    left: -1.5rem;
+  }
+  &::before {
+    z-index: -1;
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;  
+  }
+}
+
+.followed-by-text {
+  position: relative;
+  left: -1rem;
+}
+
+.account-ctas {
+  grid-area: account-ctas;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) auto;
+  gap: 0.5rem;
+  button {
+    border: none;
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.125rem;
+    background-color: var(--light-gray-1);
+    transition: background-color var(--transition-speed-fast);
+    
+    &:hover {
+      background-color: var(--light-gray-2);
+    }
+  }
+}
+
+.chev-down {
+  width: 1.125rem;
+  vertical-align: middle;
+}
+
+.person-add {
+  width: 1.125rem;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+@media (min-width: 600px) {
+  .account-ctas {
+    button {
+      border-radius: 12px;
+      padding: 0.625rem 0.75rem;
+    }
+  }  
+}
+
+.account-tabs {
+  grid-column: 1 / -1;
+  position: relative;
+  margin-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  height: 3rem;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: anchor(--ig-feed-tab bottom);
+    left: calc(anchor(--ig-feed-tab left) - calc(anchor-size(--ig-feed-tab) / 1.17));
+    height: 2px;
+    width: calc(anchor-size(--ig-feed-tab) * 2.7);
+    background-color: currentColor;
+  }
+}
+
+.tabs-icons {
+  height: 100%;
+  width: var(--nav-icon-size);
+  fill: var(--gray);
+}
+
+.tabs-icons:first-child {
+  fill: inherit;
+  anchor-name: --ig-feed-tab;
+  transform: scaleX(0.9);
+}
+
+.gallery, .fake-gallery {
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  gap: 0.125rem;
+  margin-bottom: 2px;
+  img {
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    user-select: none; /* gotta find ways to not use this: wrap with button or something */
+    cursor: pointer;
+    transition: filter var(--transition-speed-fast), transform var(--transition-speed-fast);
+
+    &:hover {
+      filter: brightness(0.5);
+      transform: scale(0.98);
+    }
+  }
+}
+
+.fake-gallery {
+  user-select: none;
+  position: relative;
+  cursor: not-allowed;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#fff6 0, #fff);
+  }
+}
+
+.lightbox {
+  z-index: 99;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 5rem;
+  /* debug width height and inset if not behaving correctly */
+
+  background-color: #0000;
+  backdrop-filter: blur(0);
+  transition-property: display, opacity, backdrop-filter, background-color;
+  transition-duration: var(--transition-speed-fast);
+  transition-behavior: allow-discrete;
+  
+  &.show {
+    display: flex;
+    opacity: 1;
+    background-color: #0009;
+    backdrop-filter: blur(4px);
+
+    /* tyring out kevin powell's stuffs  */
+    /* @starting-style {
+      opacity: 0;
+      background-color: #0000;
+      backdrop-filter: blur(0);
+    } */
+
+    #lightbox-image {
+      transform: none;
+      @starting-style {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+}
+
+#close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
+  background: none;
+  border: none;
+  svg {
+    width: 2rem;
+    height: auto;
+  }
+}
+
+#lightbox-image {
+  object-fit: contain;
+  transform: scale(1.15);
+  transition: transform var(--transition-speed-fast);
+}
+
+/* utils */
+.bold {
+  font-weight: 700;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
