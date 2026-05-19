@@ -154,16 +154,10 @@ hr {
 }
 
 .player-card {
-  z-index: 0;
   user-select: none;
-  position: relative;
   overflow: hidden;
   flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   border: 1px solid var(--light-gray-2);
-  padding: 1.25rem;
   border-radius: 0.75rem;
   background-image: 
   linear-gradient(to top right, var(--dark-overlay) 20%, #0002),
@@ -171,15 +165,23 @@ hr {
   color: var(--light-gray-1);
   transition: --dark-overlay 0.3s;
   cursor: pointer;
-
+  
   &:hover {
     --dark-overlay: #000c;
     img {
       height: 95%;
     }
   }
-
+  
   a {
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    padding: 1.25rem;
     color: inherit;
     text-decoration: none;
   }
