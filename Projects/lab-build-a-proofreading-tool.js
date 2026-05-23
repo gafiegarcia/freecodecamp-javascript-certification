@@ -123,6 +123,7 @@ function findRepeatedPhrases(words, phraseLength) {
   - Anagram detection: sorted-letters → list of words with those letters. "act", "cat", "tac" all map to "act".
   - Finding duplicates in any dataset: identity → list of records.
   - Counting frequencies: value → count (a degenerate case where you only care about .length of each group).
+- note that the first line of Claude's function is redundant functionally, as the rest of the line covers all cases where phraseLength >= words.length. it's still good practice to be explicit about it though, for in bigger projects where the data is huge it could save so much time because of the early exit on invalid input
 
 4. [critical] `.join("")` correctness bug: `["ab", "c"]` and `["a", "bc"]` would match.
 either use other chars (e.g., `.join("|")` or `.join("\0")`) OR what I like to do: plain `.join()` (which I just learned equals to `.toString()`)
