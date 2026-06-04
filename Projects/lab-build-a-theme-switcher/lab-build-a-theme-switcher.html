@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Theme Switcher</h1>
+
+      <button id="theme-switcher-button" aria-haspopup="true" aria-expanded="false" aria-controls="theme-dropdown">
+        Switch Theme
+      </button>
+      <ul id="theme-dropdown" role="menu" aria-labelledby="theme-switcher-button" hidden>
+        <li id="theme-ivory" role="menuitem">Ivory</li>
+        <li id="theme-obsidian" role="menuitem">Obsidian</li>
+      </ul>
+    </header>
+
+    <div class="hr"></div>
+
+    <div id="theme-status-msg" aria-live="polite"></div>
+
+    <article>
+      <h2>Introduction</h2>
+      <p>
+        JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language.
+        Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its
+        environment to provide programmatic control over them.
+      </p>
+      <p>
+        JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language
+        elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety
+        of purposes by supplementing it with additional objects; for example:
+      </p>
+    </article>
+  </main>
+
+  <aside>
+    <span>You can always press <span class="btn">Esc</span> ...</span>
+  </aside>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
