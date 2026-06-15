@@ -97,6 +97,7 @@ Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-s
   - [Lab] Repeat a String
   - [Workshop] Festival Crowd Flow Simulator
   - [Lab] Missing Letter Detector
+  - [Lab] Smart Pantry Restocker (new! finished on 2026-06-15)
   - [Lab] Proofreading Tool
   - [Review] JavaScript Loops
   - [Quiz] JavaScript Loops
