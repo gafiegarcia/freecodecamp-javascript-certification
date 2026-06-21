@@ -87,6 +87,7 @@ Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-s
   - [Lecture] Working with Loops
   - [Workshop] Word Counter
   - [Workshop] Sentence Analyzer
+  - [Lab] Traffic Light Sequencer
   - [Workshop] Space Mission Roster
   - [Workshop] Heritage Library Catalog
   - [Lab] Longest Word in a String
