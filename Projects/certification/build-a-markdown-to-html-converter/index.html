@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown to HTML Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h1>Markdown to HTML Converter</h1>
+    <div id="container">
+      <div class="container">
+        <button id="demo-markdown-btn">Insert demo markdown</button>
+        <h2>
+          <label for="markdown-input">Markdown Input:</label>
+        </h2>
+        <textarea
+          id="markdown-input"
+          placeholder="Enter your markdown here..."
+        ></textarea>
+      </div>
+      <div id="pile" class="container">
+        <div id="preview-mode-toggle" role="tablist" aria-label="Output views">
+          <button
+            id="preview-tab"
+            class="mode-toggle"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="preview-div"
+          >
+            <span>Preview</span>
+          </button>
+          <button
+            id="raw-html-tab"
+            class="mode-toggle"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="html-output-div"
+          >
+            <span>Raw HTML</span>
+          </button>
+        </div>
+        <div
+          id="html-output-div"
+          class="preview-panel"
+          role="tabpanel"
+          aria-labelledby="raw-html-tab"
+          hidden
+        >
+          <h2>
+            <label for="html-output" class="">Raw HTML Output:</label>
+          </h2>
+          <div id="html-output"></div>
+        </div>
+        <div
+          id="preview-div"
+          class="preview-panel"
+          role="tabpanel"
+          aria-labelledby="preview-tab"
+        >
+          <h2>
+            <label for="preview" class="">HTML Preview:</label>
+          </h2>
+          <div id="preview"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
