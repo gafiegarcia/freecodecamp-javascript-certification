@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: light;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+h1 {
+    text-align: center;
+}
+
+fieldset {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border-color: rgb(118, 118, 118);
+}
+
+textarea, input, button {
+    font: inherit;
+}
+
+textarea {
+    width: 100%;
+    border-color: rgb(118, 118, 118);
+    resize: vertical;
+    min-height: 5lh;
+}
+
+input, textarea {
+    padding: 0.25rem;
+    margin-block: 0.25rem;
+    border-color: rgb(118, 118, 118);
+}
+
+hr {
+    margin: 0;
+    width: 100%;
+}
+
+#form {
+    max-width: min(520px, 80%);
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+#personal-info,
+#product-info {
+    padding: 1rem 0.75rem 0.75rem;
+}
+
+#personal-info input, #product-info input {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+
+#btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#submit-btn, #clear-btn {
+    margin: 10px 15px 0;
+}
