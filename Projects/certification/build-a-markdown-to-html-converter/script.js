@@ -14,6 +14,7 @@ const mdRegex = [
     html: `<ul>\n$&\n</ul>\n`,
   },
   {
+    // forgot to copy the new anti-EOF change above here. already submitted anyway...
     md: /(?:^\d+\. (?<item>.*?$\n))(?:^[ \t]*(?:[-*+]|\d+\.) (?:.*?$\n))*/gm,
     html: `<ol>\n$&</ol>\n`,
   },
