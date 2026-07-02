@@ -1,6 +1,6 @@
 ## asap
 
-- [x] review [this lab project](Projects/lab-build-a-playlist-remix-engine.js) — ask AI for more elegant approaches
+- [ ] review [Drum Machine project](./Projects/certification/build-a-drum-machine/script.js)
 
 ## GitHub Pages
 
