@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
   padding: 2rem;
@@ -8,6 +9,7 @@ body {
   margin: 0;
   background-color: #e7f5fe;
 }
+
 button {
   cursor: pointer;
   font: inherit;
@@ -19,12 +21,14 @@ button {
   color: #3b3b3b;
   transition: background-color 0.1s;
 }
+
 #container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   min-height: calc(100vh - 4rem - 2.5lh - 2.75rem);
 }
+
 .container {
   position: relative;
   flex: 1 1 0;
@@ -34,36 +38,42 @@ button {
   overflow: scroll;
   box-shadow: 0 0 14px #1123;
 }
+
 #markdown-input {
   width: 100%;
   height: calc(100% - 5rem);
   resize: none;
   padding: 0.5rem;
-  line-height: 1.5;
   font: inherit;
   font-size: 0.9375rem;
+
   &:focus-visible {
     outline: 2px solid #0b88d5;
     outline-offset: -1px;
   }
 }
+
 #demo-markdown-btn {
   position: absolute;
   top: 0.75rem;
   right: 1rem;
   transition: background-color 0.1s;
+
   &:hover {
     background-color: #8ecbf0;
   }
 }
+
 #html-output {
   white-space: pre-wrap;
   font-family: monospace;
   /*background-color: #f9f9f9;*/
 }
+
 #pile {
   position: relative;
 }
+
 #preview-mode-toggle {
   position: absolute;
   top: 0.75rem;
@@ -71,42 +81,59 @@ button {
   display: flex;
   flex-direction: row-reverse;
   gap: 0.5rem;
+
   & button {
     &:hover {
       background-color: #8ecbf0;
     }
+
     &[aria-selected="true"] {
       background-color: #1080c6;
       color: #fff;
     }
   }
 }
+
 .preview-panel {
   height: calc(100% - 5rem);
 }
+
 #preview {
   * {
     margin: 0;
   }
-  & > *:not(:first-child) {
-    margin-block-start: calc(6.25em - 5.25rem);
+
+  &>*:not(:first-child) {
+    margin-block-start: calc(2.5em - 1.5rem);
   }
+
   hr {
     margin-block: 1rem;
     border: none;
     border-top: 1px solid gray;
   }
+
   h1 {
     color: inherit;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.2;
+  }
+
   ul,
   ol {
     margin-block: 0.5rem 0.875rem;
     padding-inline-start: 2.25rem;
   }
+
   li {
     margin-block-start: 0.25rem;
   }
+
   code {
     padding: 0.125rem 0.25rem;
     color: red;
@@ -115,6 +142,7 @@ button {
     border: 1px solid #ddd;
     margin-inline: 0.125rem;
   }
+
   blockquote {
     margin-inline-start: 2rem;
     padding: 1rem;
@@ -122,6 +150,7 @@ button {
     border-left: 4px solid #8ecbf0;
   }
 }
+
 #html-output,
 #preview {
   display: inline-block;
@@ -132,6 +161,7 @@ button {
   margin: auto;
   background-color: #fff;
 }
+
 @media (min-width: 768px) {
   #container {
     flex-direction: row;
