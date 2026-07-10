@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <section id="main-section" class="stack">
+        <h1>Bookmark Manager</h1>
+        <div id="dropdown">
+          <label for="category-dropdown" class="sr-only"
+            >Select a category:</label
+          >
+          <select id="category-dropdown" name="options">
+            <option value="news" selected>News</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="work">Work</option>
+            <option value="miscellaneous">Miscellaneous</option>
+          </select>
+        </div>
+        <div class="flex buttons-wrapper">
+          <button type="button" id="view-category-button">View Category</button>
+          <button type="button" id="add-bookmark-button">Add Bookmark</button>
+        </div>
+      </section>
+
+      <section id="form-section" class="hidden">
+        <form id="bookmark-form">
+          <h2 class="category-name"></h2>
+          <div class="inputs-wrapper">
+            <label for="name">Name:</label>
+            <input type="text" id="name" />
+          </div>
+          <div class="inputs-wrapper">
+            <label for="url">URL:</label>
+            <input type="text" id="url" />
+          </div>
+          <div class="flex buttons-wrapper">
+            <button
+              type="button"
+              class="go-back-btn"
+              id="close-form-button"
+              tabindex="1"
+            >
+              ← Go Back
+            </button>
+            <button type="submit" id="add-bookmark-button-form">
+              Add Bookmark
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="bookmark-list-section" class="hidden stack">
+        <h2 class="category-name"></h2>
+        <div id="category-list" class="stack"></div>
+        <div class="flex buttons-wrapper">
+          <button
+            type="button"
+            class="go-back-btn"
+            id="close-list-button"
+            tabindex="1"
+          >
+            ← Go Back
+          </button>
+          <button type="button" id="delete-bookmark-button">
+            Delete Bookmark
+          </button>
+        </div>
+      </section>
+
+      <p
+        id="status-ok"
+        class="status-message"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></p>
+      <p
+        id="status-error"
+        class="status-message"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
