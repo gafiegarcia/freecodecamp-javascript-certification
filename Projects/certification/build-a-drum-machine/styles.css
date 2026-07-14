@@ -339,6 +339,7 @@
       position: relative;
       justify-content: center;
       flex: 1;
+      max-height: 12.5rem;
     }
   }
 
@@ -405,7 +406,6 @@
     direction: rtl;
     block-size: 100%;
     inline-size: 100%;
-    max-inline-size: 12rem;
     min-inline-size: 8rem;
     display: block;
     appearance: none;
