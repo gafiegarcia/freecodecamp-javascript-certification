@@ -9,7 +9,7 @@ Review the submission to deepen the user's understanding, not merely to produce 
 
 ## Follow the review workflow
 
-1. Inspect the target code and the project's instructions or user stories. The instructions is usually saved in the same folder as `user-story.md` or `instructions.md`; if it's nowhere to be found, just search for it in the curriculum available in freeCodeCamp's repo. Ask only when missing instructions/requirements prevent a trustworthy review.
+1. Inspect the target code and the project's instructions or user stories. The instructions is usually saved in the same folder as the project's code as `user-story.md` or `instructions.md`; if it's nowhere to be found, just search for it in the curriculum available in freeCodeCamp's repo. Ask only when missing instructions/requirements prevent a trustworthy review.
 2. Treat passing fCC tests as a useful baseline, not proof that the code is readable, efficient, idiomatic, or robust.
 3. Locate the current project in `<repo-root>/fcc-js-curriculum.md` and determine which JavaScript concepts have been taught up to that point. Read enough surrounding curriculum context to establish that boundary.
 4. Evaluate the submission for:
