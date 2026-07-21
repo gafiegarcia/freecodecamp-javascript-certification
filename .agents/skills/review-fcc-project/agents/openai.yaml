@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review fCC Project"
+  short_description: "Review submitted fCC JavaScript projects"
+  default_prompt: "Use $review-fcc-project to review my submitted freeCodeCamp project."
