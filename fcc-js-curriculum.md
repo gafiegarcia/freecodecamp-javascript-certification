@@ -113,6 +113,7 @@ Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-s
   - [Lab] Slice and Splice
   - [Lab] Pyramid Generator
   - [Lab] Gradebook App
+  - [Lab] Restore a Coherent Narrative from an Array of Story Fragments
   - [Lecture] The Var Keyword and Hoisting
   - [Lab] Title Case Converter
   - [Lab] Falsy Remover
@@ -188,7 +189,8 @@ Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-s
 
 - **Form Validation**
   - [Lecture] Understanding Form Validation
-  - [Workshop] Calorie Counter
+  - ~~[Workshop] Calorie Counter~~
+  - [Workshop] Build an Envelope Budget App
   - [Lab] Customer Complaint Form
   - [Review] Form Validation with JavaScript
   - [Quiz] Form Validation with JavaScript
