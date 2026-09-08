@@ -37,7 +37,7 @@ function bubbleSortv2(arr) {
       }
     }
 
-    if (!swapped) return arr;
+    if (!swapped) return arr; // since I already have `return arr` below, this could just be `break`. only a style note, not an issue
   }
 
   return arr;
