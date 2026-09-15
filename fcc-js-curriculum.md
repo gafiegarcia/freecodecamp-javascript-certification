@@ -78,6 +78,7 @@ Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-s
   - [Lecture] Working with JSON
   - [Lecture] Working with Optional Chaining and Object Destructuring
   - [Workshop] Recipe Tracker
+  - [Lab] Build a Device Loan Ledger
   - [Lab] Quiz Game
   - [Lab] Record Collection
   - [Review] JavaScript Objects
