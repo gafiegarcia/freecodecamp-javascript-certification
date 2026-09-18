@@ -1,5 +1,3 @@
----
-
 ## Checking your own work: `benchmark.js`
 
 Run it on any file in this folder that defines a `quicksort` function:
