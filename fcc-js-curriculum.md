@@ -1,302 +1,303 @@
 # freeCodeCamp JavaScript Certification (v9) — Curriculum
 
-Generated from the official superblock structure at
-`freeCodeCamp/freeCodeCamp/curriculum/structure/superblocks/javascript-v9.json`.
+Titles below match exactly what the freeCodeCamp web app shows at
+<https://www.freecodecamp.org/learn/javascript-v9/> (read from the live page on 2026-09-21).
 
-Block-type prefixes: **Lecture** (concept lessons), **Workshop** (guided multi-step build),
-**Lab** (independent project), **Review** (recap), **Quiz** (assessment).
+Block-type prefixes use the web app's own labels: **Theory** (concept lessons),
+**Workshop** (guided multi-step build), **Lab** (independent project),
+**Review** (recap), **Quiz** (assessment), **Certification Project**.
 
 ## JavaScript
 
-- **JavaScript Variables and Strings**
-  - [Lecture] Introduction to JavaScript
-  - [Lecture] Introduction to Strings
-  - [Lecture] Understanding Code Clarity
-  - [Workshop] Greeting Bot
-  - [Lab] JavaScript Trivia Bot
-  - [Lab] Sentence Maker
-  - [Lecture] Working with Data Types
-  - [Review] JavaScript Variables and Data Types
-  - [Quiz] JavaScript Variables and Data Types
-  - [Lecture] Working with Strings in JavaScript
-  - [Workshop] Teacher Chatbot
-  - [Lecture] Working with String Character Methods
-  - [Lecture] Working with String Search and Slice Methods
-  - [Workshop] String Inspector
-  - [Lecture] Working with String Formatting Methods
-  - [Workshop] String Formatter
-  - [Lecture] Working with String Modification Methods
-  - [Workshop] String Transformer
-  - [Review] JavaScript Strings
-  - [Quiz] JavaScript Strings
+- **Variables and Strings**
+  - [Theory] Introduction to JavaScript
+  - [Theory] Introduction to Strings
+  - [Theory] Understanding Code Clarity
+  - [Workshop] Build a Greeting Bot
+  - [Lab] Build a JavaScript Trivia Bot
+  - [Lab] Build a Sentence Maker
+  - [Theory] Working with Data Types
+  - [Review] JavaScript Variables and Data Types Review
+  - [Quiz] JavaScript Variables and Data Types Quiz
+  - [Theory] Working with Strings in JavaScript
+  - [Workshop] Build a Teacher Chatbot
+  - [Theory] Working with String Character Methods
+  - [Theory] Working with String Search and Slice Methods
+  - [Workshop] Build a String Inspector
+  - [Theory] Working with String Formatting Methods
+  - [Workshop] Build a String Formatter
+  - [Theory] Working with String Modification Methods
+  - [Workshop] Build a String Transformer
+  - [Review] JavaScript Strings Review
+  - [Quiz] JavaScript Strings Quiz
 
-- **JavaScript Booleans and Numbers**
-  - [Lecture] Working with Numbers and Arithmetic Operators
-  - [Lab] Debug Type Coercion Errors
-  - [Lecture] Working with Operator Behavior
-  - [Lab] Debug Increment and Decrement Operator Errors
-  - [Lecture] Working with Comparison and Boolean Operators
-  - [Workshop] Logic Checker App
-  - [Lecture] Working with Unary and Bitwise Operators
-  - [Lecture] Working with Conditional Logic and Math Methods
-  - [Workshop] Mathbot
-  - [Lab] Fortune Teller
-  - [Lecture] Working with Numbers and Common Number Methods
-  - [Review] JavaScript Math
-  - [Quiz] JavaScript Math
-  - [Lecture] Understanding Comparisons and Conditionals
-  - [Review] JavaScript Comparisons and Conditionals
-  - [Quiz] JavaScript Comparisons and Conditionals
+- **Booleans and Numbers**
+  - [Theory] Working with Numbers and Arithmetic Operators
+  - [Lab] Debug Type Coercion Errors in a Buggy App
+  - [Theory] Working with Operator Behavior
+  - [Lab] Debug Increment and Decrement Operator Errors in a Buggy App
+  - [Theory] Working with Comparison and Boolean Operators
+  - [Workshop] Build a Logic Checker App
+  - [Theory] Working with Unary and Bitwise Operators
+  - [Theory] Working with Conditional Logic and Math Methods
+  - [Workshop] Build a Mathbot
+  - [Lab] Build a Fortune Teller
+  - [Theory] Working with Numbers and Common Number Methods
+  - [Review] JavaScript Math Review
+  - [Quiz] JavaScript Math Quiz
+  - [Theory] Understanding Comparisons and Conditionals
+  - [Review] JavaScript Comparisons and Conditionals Review
+  - [Quiz] JavaScript Comparisons and Conditionals Quiz
 
-- **JavaScript Functions**
-  - [Lecture] Working with Functions
-  - [Workshop] Calculator
-  - [Lab] Boolean Check
-  - [Lab] Email Masker
-  - [Workshop] Loan Qualification Checker
-  - [Lab] Celsius to Fahrenheit Converter
-  - [Lab] Counting Cards
-  - [Lab] Leap Year Calculator
-  - [Lab] Truncate String
-  - [Lab] String Ending Checker
-  - [Review] JavaScript Functions
-  - [Quiz] JavaScript Functions
+- **Functions**
+  - [Theory] Working with Functions
+  - [Workshop] Build a Calculator
+  - [Lab] Build a Boolean Check Function
+  - [Lab] Build an Email Masker
+  - [Workshop] Build a Loan Qualification Checker
+  - [Lab] Build a Celsius to Fahrenheit Converter
+  - [Lab] Build a Card Counting Assistant
+  - [Lab] Build a Leap Year Calculator
+  - [Lab] Implement the Truncate String Algorithm
+  - [Lab] Build a Confirm the Ending Tool
+  - [Review] JavaScript Functions Review
+  - [Quiz] JavaScript Functions Quiz
 
-- **JavaScript Arrays**
-  - [Lecture] Working with Arrays
-  - [Workshop] Shopping List
-  - [Lab] Lunch Picker Program
-  - [Lab] Golf Score Translator
-  - [Lecture] Working with Common Array Methods
-  - [Review] JavaScript Arrays
-  - [Quiz] JavaScript Arrays
+- **Arrays**
+  - [Theory] Working with Arrays
+  - [Workshop] Build a Shopping List
+  - [Lab] Build a Lunch Picker Program
+  - [Lab] Build a Golf Score Translator
+  - [Theory] Working with Common Array Methods
+  - [Review] JavaScript Arrays Review
+  - [Quiz] JavaScript Arrays Quiz
 
-- **JavaScript Objects**
-  - [Lecture] Introduction to JavaScript Objects and Their Properties
-  - [Workshop] Wildlife Tracker
-  - [Lab] Cargo Manifest Validator
-  - [Lecture] Working with JSON
-  - [Lecture] Working with Optional Chaining and Object Destructuring
-  - [Workshop] Recipe Tracker
+- **Objects**
+  - [Theory] Introduction to JavaScript Objects and Their Properties
+  - [Workshop] Build a Wildlife Tracker
+  - [Lab] Build a Cargo Manifest Validator
+  - [Theory] Working with JSON
+  - [Theory] Working with Optional Chaining and Object Destructuring
+  - [Workshop] Build a Recipe Tracker
   - [Lab] Build a Device Loan Ledger
-  - [Lab] Quiz Game
-  - [Lab] Record Collection
-  - [Review] JavaScript Objects
-  - [Quiz] JavaScript Objects
+  - [Lab] Build a Quiz Game
+  - [Lab] Build a Record Collection
+  - [Review] JavaScript Objects Review
+  - [Quiz] JavaScript Objects Quiz
 
-- **JavaScript Loops**
-  - [Lecture] Working with Loops
-  - [Workshop] Word Counter
-  - [Workshop] Sentence Analyzer
-  - [Lab] Traffic Light Sequencer
-  - [Workshop] Space Mission Roster
-  - [Workshop] Heritage Library Catalog
-  - [Lab] Longest Word in a String
-  - [Lab] Factorial Calculator
-  - [Lab] Mutations
-  - [Lab] Chunky Monkey
-  - [Lab] Profile Lookup
-  - [Lab] Repeat a String
-  - [Workshop] Festival Crowd Flow Simulator
-  - [Lab] Missing Letter Detector
-  - [Lab] Smart Pantry Restocker (new! finished on 2026-06-15)
-  - [Lab] Proofreading Tool
-  - [Review] JavaScript Loops
-  - [Quiz] JavaScript Loops
+- **Loops**
+  - [Theory] Working with Loops
+  - [Workshop] Build a Word Counter
+  - [Workshop] Build a Sentence Analyzer
+  - [Lab] Build a Traffic Light Sequencer
+  - [Workshop] Build a Space Mission Roster
+  - [Workshop] Build a Heritage Library Catalog
+  - [Lab] Build a Longest Word Finder App
+  - [Lab] Build a Factorial Calculator
+  - [Lab] Implement the Mutations Algorithm
+  - [Lab] Implement the Chunky Monkey Algorithm
+  - [Lab] Build a Profile Lookup
+  - [Lab] Build a String Repeating Function
+  - [Workshop] Build a Festival Crowd Flow Simulator
+  - [Lab] Build a Missing Letter Detector
+  - [Lab] Build a Smart Pantry Restocker (new! finished on 2026-06-15)
+  - [Lab] Build a Proofreading Tool
+  - [Review] JavaScript Loops Review
+  - [Quiz] JavaScript Loops Quiz
 
-- **[Review] JavaScript Fundamentals**
-  - [Lecture] Working with Types and Objects
-  - [Lecture] Working with Arrays Variables and Naming Practices
-  - [Lecture] Working with Code Quality and Execution Concepts
-  - [Lab] Reverse a String
-  - [Lab] Largest Number Finder
-  - [Lab] First Element Finder
-  - [Lab] Slice and Splice
-  - [Lab] Pyramid Generator
-  - [Lab] Gradebook App
+- **JavaScript Fundamentals Review**
+  - [Theory] Working with Types and Objects
+  - [Theory] Working with Arrays, Variables, and Naming Practices
+  - [Theory] Working with Code Quality and Execution Concepts
+  - [Lab] Build a String Inverter
+  - [Lab] Build the Largest Number Finder
+  - [Lab] Build a First Element Finder
+  - [Lab] Implement the Slice and Splice Algorithm
+  - [Lab] Build a Pyramid Generator
+  - [Lab] Build a Gradebook App
   - [Lab] Restore a Coherent Narrative from an Array of Story Fragments
-  - [Lecture] The Var Keyword and Hoisting
-  - [Lab] Title Case Converter
-  - [Lab] Falsy Remover
-  - [Lab] Inventory Management Program
-  - [Lecture] Understanding Modules Imports and Exports
-  - [Lecture] Working with the Arguments Object and Rest Parameters
-  - [Lab] Unique Sorted Union
-  - [Lab] Password Generator
-  - [Lab] Sum All Numbers Algorithm
-  - [Lab] DNA Pair Generator
-  - [Lab] HTML Entitiy Converter
-  - [Lab] Odd Fibonacci Sum Calculator
-  - [Lab] Element Skipper
-  - [Lab] Playlist Remix Engine
-  - [Review] JavaScript Fundamentals
-  - [Quiz] JavaScript Fundamentals
+  - [Theory] The var Keyword and Hoisting
+  - [Lab] Build a Title Case Converter
+  - [Lab] Implement a Falsy Remover
+  - [Lab] Build an Inventory Management Program
+  - [Theory] Understanding Modules, Imports, and Exports
+  - [Theory] Working With the Arguments Object and Rest Parameters
+  - [Lab] Implement a Unique Sorted Union
+  - [Lab] Build a Password Generator App
+  - [Lab] Design a Sum All Numbers Algorithm
+  - [Lab] Implement a DNA Pair Generator
+  - [Lab] Implement an HTML Entity Converter
+  - [Lab] Build an Odd Fibonacci Sum Calculator
+  - [Lab] Implement an Element Skipper
+  - [Lab] Build a Playlist Remix Engine
+  - [Review] JavaScript Fundamentals Review
+  - [Quiz] JavaScript Fundamentals Quiz
 
 - **Higher Order Functions and Callbacks**
-  - [Lecture] Working with Higher Order Functions and Callbacks
-  - [Workshop] Library Manager
-  - [Lab] Book Organizer
-  - [Lab] Sorted Index Finder
-  - [Lab] Symmetric Difference
-  - [Lab] Value Remover Function
-  - [Lab] Matching Object Filter
-  - [Lab] Prime Number Sum Calculator
-  - [Lab] Range Based LCM Calculator
-  - [Lab] Deep Flattening Tool
-  - [Lab] All True Property Validator
-  - [Review] JavaScript Higher Order Functions
-  - [Quiz] JavaScript Higher Order Functions
+  - [Theory] Working with Higher Order Functions and Callbacks
+  - [Workshop] Build a Library Manager
+  - [Lab] Build a Book Organizer
+  - [Lab] Implement a Sorted Index Finder
+  - [Lab] Build a Symmetric Difference Function
+  - [Lab] Implement a Value Remover Function
+  - [Lab] Implement a Matching Object Filter
+  - [Lab] Implement a Range-Based LCM Calculator
+  - [Lab] Create a Deep Flattening Tool
+  - [Lab] Build an All-True Property Validator
+  - [Review] JavaScript Higher Order Functions Review
+  - [Quiz] JavaScript Higher Order Functions Quiz
 
 - **DOM Manipulation and Events**
-  - [Lecture] Working with the DOM Click Events and Web APIs
-  - [Workshop] Storytelling App
-  - [Workshop] Emoji Reactor
-  - [Lab] Favorite Icon Toggler
-  - [Lecture] Understanding the Event Object and Event Delegation
-  - [Workshop] Music Instrument Filter
-  - [Lab] Real Time Counter
-  - [Lab] Lightbox Viewer
-  - [Workshop] RPS Game
-  - [Lab] Football Team Cards
-  - [Review] DOM Manipulation and Click Events with JavaScript
-  - [Quiz] DOM Manipulation and Click Event with JavaScript
+  - [Theory] Working with the DOM, Click Events, and Web APIs
+  - [Workshop] Build a Storytelling App
+  - [Workshop] Build an Emoji Reactor
+  - [Lab] Build a Favorite Icon Toggler
+  - [Theory] Understanding the Event Object and Event Delegation
+  - [Workshop] Build a Music Instrument Filter
+  - [Lab] Build a Real Time Counter
+  - [Lab] Build a Lightbox Viewer
+  - [Workshop] Build a Rock, Paper, Scissors Game
+  - [Lab] Build a Set of Football Team Cards
+  - [Review] DOM Manipulation and Click Events with JavaScript Review
+  - [Quiz] DOM Manipulation and Click Events with JavaScript Quiz
 
-- **JS Accessibility**
-  - [Lecture] Understanding ARIA Expanded ARIA Live and Common ARIA States
-  - [Workshop] Planets Tablist
-  - [Workshop] Note Taking App
-  - [Lab] Theme Switcher
-  - [Review] JS Accessibility
-  - [Quiz] JS Accessibility
+- **JavaScript and Accessibility**
+  - [Theory] Understanding aria-expanded, aria-live, and Common ARIA States
+  - [Workshop] Build a Planets Tablist
+  - [Workshop] Build a Note Taking App
+  - [Lab] Build a Theme Switcher
+  - [Review] JavaScript and Accessibility Review
+  - [Quiz] JavaScript and Accessibility Quiz
 
-- **Debugging JavaScript**
-  - [Lecture] Debugging Techniques
-  - [Lab] Random Background Color Changer
-  - [Review] Debugging JavaScript
-  - [Quiz] Debugging JavaScript
+- **Debugging**
+  - [Theory] Debugging Techniques
+  - [Lab] Debug a Random Background Color Changer
+  - [Review] Debugging JavaScript Review
+  - [Quiz] Debugging JavaScript Quiz
 
 - **Basic Regex**
-  - [Lecture] Working with Regular Expressions
-  - [Workshop] Spam Filter
-  - [Lab] Palindrome Checker
-  - [Lab] Regex Sandbox
-  - [Lab] Spinal Case Converter
-  - [Lab] Pig Latin
-  - [Lab] Smart Word Replacement
-  - [Review] JavaScript Regular Expressions
-  - [Quiz] JavaScript Regular Expressions
+  - [Theory] Working with Regular Expressions
+  - [Workshop] Build a Spam Filter
+  - [Lab] Build a Palindrome Checker
+  - [Lab] Build a RegEx Sandbox
+  - [Lab] Implement a Spinal Case Converter
+  - [Lab] Implement a Pig Latin Translator
+  - [Lab] Build a Smart Word Replacement Function
+  - [Review] JavaScript Regular Expressions Review
+  - [Quiz] JavaScript Regular Expressions Quiz
 
-- **[Certification] Build a Markdown to HTML Converter**
+- **[Certification Project] Build a Markdown to HTML Converter**
 
 - **Form Validation**
-  - [Lecture] Understanding Form Validation
-  - ~~[Workshop] Calorie Counter~~
+  - [Theory] Understanding Form Validation
+  - ~~[Workshop] Calorie Counter~~ (no longer in the curriculum)
   - [Workshop] Build an Envelope Budget App
-  - [Lab] Customer Complaint Form
-  - [Review] Form Validation with JavaScript
-  - [Quiz] Form Validation with JavaScript
+  - [Lab] Build a Customer Complaint Form
+  - [Review] Form Validation with JavaScript Review
+  - [Quiz] Form Validation with JavaScript Quiz
 
-- **JavaScript Dates**
-  - [Lecture] Working with Dates
-  - [Lab] Date Conversion
-  - [Review] JavaScript Dates
-  - [Quiz] JavaScript Dates
+- **Dates**
+  - [Theory] Working with Dates
+  - [Lab] Build a Date Conversion Program
+  - [Review] JavaScript Dates Review
+  - [Quiz] JavaScript Dates Quiz
 
 - **Audio and Video Events**
-  - [Lecture] Working with Audio and Video
-  - [Workshop] Music Player
-  - [Review] JavaScript Audio and Video
-  - [Quiz] JavaScript Audio and Video
+  - [Theory] Working with Audio and Video
+  - [Workshop] Build a Music Player
+  - [Review] JavaScript Audio and Video Review
+  - [Quiz] JavaScript Audio and Video Quiz
 
-- **[Certification] Build a Drum Machine**
+- **[Certification Project] Build a Drum Machine**
 
 - **Maps and Sets**
-  - [Lecture] Working with Maps and Sets
-  - [Workshop] Plant Nursery Catalog
-  - [Review] JavaScript Maps and Sets
-  - [Quiz] JavaScript Maps and Sets
+  - [Theory] Working with Maps and Sets
+  - [Workshop] Build a Plant Nursery Catalog
+  - [Review] JavaScript Maps and Sets Review
+  - [Quiz] JavaScript Maps and Sets Quiz
 
-- **[Certification] Build a Voting System**
+- **[Certification Project] Build a Voting System**
 
-- **Localstorage and CRUD Operations**
-  - [Lecture] Working with Client Side Storage and CRUD Operations
-  - [Workshop] Todo App
-  - [Lab] Bookmark Manager App
-  - [Review] Local Storage and CRUD
-  - [Quiz] Local Storage and CRUD
+- **localStorage and CRUD Operations**
+  - [Theory] Working with Client-Side Storage and CRUD Operations
+  - [Workshop] Build a Todo App using Local Storage
+  - [Lab] Build a Bookmark Manager App
+  - [Review] Local Storage and CRUD Review
+  - [Quiz] Local Storage and CRUD Quiz
 
-- **Classes and the This Keyword**
-  - [Lecture] Understanding How to Work with Classes in JavaScript
-  - [Workshop] Shopping Cart
-  - [Lab] Project Idea Board
-  - [Review] JavaScript Classes
-  - [Quiz] JavaScript Classes
+- **Classes**
+  - [Theory] Understanding How to Work with Classes in JavaScript
+  - [Workshop] Build a Shopping Cart
+  - [Lab] Build a Project Idea Board
+  - [Review] JavaScript Classes Review
+  - [Quiz] JavaScript Classes Quiz
 
-- **[Certification] Bank Account Manager Program**
+- **[Certification Project] Build a Bank Account Management Program**
 
 - **Recursion**
-  - [Lecture] Understanding Recursion and the Call Stack
-  - [Workshop] Countup
-  - [Lab] Countdown
-  - [Lab] Range of Numbers
-  - [Workshop] Decimal to Binary Converter
-  - [Lab] Permutation Generator
-  - [Review] Recursion
-  - [Quiz] Recursion
+  - [Theory] Understanding Recursion and the Call Stack
+  - [Workshop] Build a Countup
+  - [Lab] Build a Countdown
+  - [Lab] Build a Range of Numbers Generator
+  - [Workshop] Build a Decimal to Binary Converter
+  - [Lab] Build a Permutation Generator
+  - [Review] Recursion Review
+  - [Quiz] Recursion Quiz
 
 - **Data Structures**
-  - [Lecture] Working with Common Data Structures
-  - [Workshop] Linked List
-  - [Lab] Linked List Operations
+  - [Theory] Working with Common Data Structures
+  - [Workshop] Build a Linked List
+  - [Lab] Implement Linked List Operations
   - [Lab] Implement a Stack
   - [Lab] Implement a Queue
-  - [Review] Data Structures
-  - [Quiz] Data Structures
+  - [Review] Data Structures Review
+  - [Quiz] Data Structures Quiz
 
 - **Algorithms**
-  - [Lecture] Introduction to Common Searching and Sorting Algorithms
-  - [Workshop] Binary Search
-  - [Workshop] Merge Sort
-  - [Lab] Bubble Sort Algorithm
-  - [Lab] Selection Sort
-  - [Lab] Insertion Sort
-  - [Lab] Quicksort
-  - [Review] Searching and Sorting Algorithms
-  - [Quiz] Searching and Sorting Algorithms
+  - [Theory] Introduction to Common Searching and Sorting Algorithms
+  - [Workshop] Implement the Binary Search Algorithm
+  - [Workshop] Implement the Merge Sort Algorithm
+  - [Lab] Implement the Bubble Sort Algorithm
+  - [Lab] Implement the Selection Sort Algorithm
+  - [Lab] Implement the Insertion Sort Algorithm
+  - [Lab] Implement the Quicksort Algorithm
+  - [Review] Searching and Sorting Algorithms Review
+  - [Quiz] Searching and Sorting Algorithms Quiz
 
 - **Graphs and Trees**
-  - [Lecture] Understanding Graphs and Trees
-  - [Workshop] Shortest Path Algorithm
-  - [Lab] Adjacency List to Matrix Converter
-  - [Workshop] Breadth First Search
-  - [Lab] Depth First Search
-  - [Lab] N Queens Problem
-  - [Review] Graphs and Trees
-  - [Quiz] Graph and Trees
+  - [Theory] Understanding Graphs and Trees
+  - [Workshop] Implement the Shortest Path Algorithm
+  - [Lab] Build an Adjacency List to Matrix Converter
+  - [Workshop] Implement the Breadth-First Search Algorithm
+  - [Lab] Implement the Depth-First Search Algorithm
+  - [Lab] Implement the N-Queens Algorithm
+  - [Review] Graphs and Trees Review
+  - [Quiz] Graphs and Trees Quiz
 
 - **Dynamic Programming**
-  - [Lecture] Understanding Dynamic Programming
-  - [Lab] Nth Fibonacci Number
-  - [Review] Dynamic Programming
-  - [Quiz] Dynamic Programming
+  - [Theory] Understanding Dynamic Programming
+  - [Lab] Build an Nth Fibonacci Number Calculator
+  - [Lab] Build a Prime Number Sum Calculator
+  - [Review] Dynamic Programming Review
+  - [Quiz] Dynamic Programming Quiz
 
 - **Functional Programming**
-  - [Lecture] Understanding Functional Programming
-  - [Workshop] Recipe Ingredient Converter
-  - [Lab] Optional Arguments Sum Function
-  - [Lab] Sorting Visualizer
-  - [Review] JavaScript Functional Programming
-  - [Quiz] JavaScript Functional Programming
+  - [Theory] Understanding Functional Programming
+  - [Workshop] Build a Recipe Ingredient Converter
+  - [Lab] Build an Optional Arguments Sum Function
+  - [Lab] Build a Sorting Visualizer
+  - [Review] JavaScript Functional Programming Review
+  - [Quiz] JavaScript Functional Programming Quiz
 
 - **Asynchronous JavaScript**
-  - [Lecture] Understanding Asynchronous Programming
-  - [Workshop] freeCodeCamp Authors Page
-  - [Lab] freeCodeCamp Forum Leaderboard
-  - [Review] Asynchronous JavaScript
-  - [Quiz] Asynchronous JavaScript
+  - [Theory] Understanding Asynchronous Programming
+  - [Workshop] Build an fCC Authors Page
+  - [Lab] Build an fCC Forum Leaderboard
+  - [Review] Asynchronous JavaScript Review
+  - [Quiz] Asynchronous JavaScript Quiz
 
-- **[Certification] Weather App**
+- **[Certification Project] Build a Weather App**
 
-- **[Review] JavaScript**
+- **[Review] JavaScript Review**
 
 ## JavaScript Certification Exam
