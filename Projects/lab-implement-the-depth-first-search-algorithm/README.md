@@ -1,0 +1,4 @@
+1. [lab-implement-the-depth-first-search-algorithm.js](./lab-implement-the-depth-first-search-algorithm.js): submitted code
+2. [lab-implement-the-depth-first-search-algorithm-reattempt1.js](./lab-implement-the-depth-first-search-algorithm-reattempt1.js): reattempt using `Set` instead of an array to track visited nodes. Also push on pop, not when neighbors are seen
+3. [lab-implement-the-depth-first-search-algorithm-reattempt2.js](./lab-implement-the-depth-first-search-algorithm-reattempt2.js): final reattempt, now with duplicate guard (no wasteful runs) + proper input validation + improved naming. Lookahead: try Node style error messages (capitalized, "what's wrong + what it must be + received what", use double quotes for arguments instead of backticks)
+4. [recursive-dfs.js](./recursive-dfs.js): Claude example implementation of recursive DFS (for reference)
