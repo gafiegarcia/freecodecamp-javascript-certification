@@ -1,6 +1,6 @@
 # Review notes — Quicksort
 
-Claude's notes from the review sessions (2026-09-17 → 18). Timeline of the files is in [README.md](README.md).
+Claude's notes from the review sessions (2026-09-17 → 18). Timeline of the files is in [README.md](./README.md).
 
 Only the things that were *new* during this project are here. The basics — recursion, base case, the divide-and-conquer idea — were right in attempt 1 and aren't repeated.
 
