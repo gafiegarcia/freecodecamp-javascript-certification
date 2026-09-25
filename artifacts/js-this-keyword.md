@@ -10,6 +10,7 @@ A method is a **script**, and `this` is **"me"** in that script. Everyone shares
 
 | | Who decides `this`? |
 |---|---|
+| **Called with `new`** (`new Counter(5)`) | **`new` itself.** It builds a brand-new empty object, runs the constructor with `this` = that object, then returns it. |
 | **Regular function** (including class methods) | **The call.** Whatever is left of the dot *when it's called*. Nothing left of the dot? `undefined`.* |
 | **Arrow function** | **Where it was written.** It uses the `this` of the function it sits inside. How you call it doesn't matter. |
 
