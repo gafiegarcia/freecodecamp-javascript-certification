@@ -21,8 +21,14 @@ function bucketFill(grid, targetColor) {
     }
 
     if (seen.has(stringifiedGrid)) {
-      console.log(`could've optimized this queue: ${current}`);
+      console.log("current seen:", seen);
+      console.log(
+        `optimized this queue: click: ${current.clicks}, grid: ${stringifiedGrid}`,
+      );
+      continue;
     }
+
+    seen.add(stringifiedGrid);
 
     const visited = new Set();
 
@@ -58,8 +64,7 @@ function bucketFill(grid, targetColor) {
               (coloredGrid[rowToFill][colToFill] = color),
           );
 
-          console.log("pushing:", coloredGrid);
-          seen.add(gridToString(coloredGrid));
+          console.log("pushing:", current.clicks + 1, coloredGrid);
           queue.push({ clicks: current.clicks + 1, grid: coloredGrid });
         }
       }
@@ -113,25 +118,25 @@ function stringToIndices(str) {
   return [+row, +col];
 }
 
-// console.log(
-//   bucketFill(
-//     [
-//       ["B", "B"],
-//       ["B", "B"],
-//     ],
-//     "R",
-//   ),
-// ); // 1
-// console.log(
-//   bucketFill(
-//     [
-//       ["G", "G", "G"],
-//       ["G", "G", "G"],
-//       ["G", "G", "G"],
-//     ],
-//     "G",
-//   ),
-// ); // 0
+console.log(
+  bucketFill(
+    [
+      ["B", "B"],
+      ["B", "B"],
+    ],
+    "R",
+  ),
+); // 1
+console.log(
+  bucketFill(
+    [
+      ["G", "G", "G"],
+      ["G", "G", "G"],
+      ["G", "G", "G"],
+    ],
+    "G",
+  ),
+); // 0
 console.log(
   bucketFill(
     [
