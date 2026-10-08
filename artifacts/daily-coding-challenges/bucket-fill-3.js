@@ -40,7 +40,7 @@ function bucketFill(grid, targetColor) {
         }
 
         const floodFillIndicesStrings = getFloodFillIndicesStrings(
-          grid,
+          current.grid,
           row,
           col,
         );
@@ -50,9 +50,8 @@ function bucketFill(grid, targetColor) {
         console.log("current visited:", visited);
 
         for (const color of colors) {
-          const currentColor = grid[row][col];
+          const currentColor = current.grid[row][col];
           if (currentColor === color) continue;
-          console.log("for color", color);
           console.log(`current row: ${row}, col: ${col}`);
 
           const indicesToFill = floodFillIndicesStrings
