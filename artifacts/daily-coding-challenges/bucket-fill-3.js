@@ -18,16 +18,12 @@ function bucketFill(grid, targetColor) {
   while (queue.length > 0) {
     const current = queue.shift();
     const visited = new Set();
-    console.log("grid to work on:");
-    console.table(current.grid);
 
     for (let row = 0; row < current.grid.length; row++) {
       for (let col = 0; col < current.grid[row].length; col++) {
         if (visited.has(indicesToString(row, col))) {
-          console.log("has visited:", row, col);
           continue;
         }
-        console.log("next click:", current.clicks + 1, "processing:", row, col);
 
         const floodFillIndicesStrings = getFloodFillIndicesStrings(
           current.grid,
@@ -37,7 +33,7 @@ function bucketFill(grid, targetColor) {
         floodFillIndicesStrings.forEach((indicesStr) =>
           visited.add(indicesStr),
         );
-        console.log("current visited:", visited);
+
         const currentColor = current.grid[row][col];
 
         for (const color of colors) {
@@ -58,14 +54,9 @@ function bucketFill(grid, targetColor) {
             return current.clicks + 1;
           }
           if (seen.has(coloredGridString)) {
-            console.log("current seen:", seen);
-            console.log(
-              `optimized this queue: click: ${current.clicks}, grid: ${coloredGridString}`,
-            );
             continue;
           }
 
-          console.log("pushing:", current.clicks + 1, coloredGrid);
           seen.add(coloredGridString);
           queue.push({ clicks: current.clicks + 1, grid: coloredGrid });
         }
@@ -149,6 +140,29 @@ console.log(
     "O",
   ),
 ); // 2
+console.log(
+  bucketFill(
+    [
+      ["G", "Y", "C", "C"],
+      ["Y", "Y", "Y", "B"],
+      ["C", "Y", "B", "B"],
+      ["C", "B", "B", "C"],
+    ],
+    "R",
+  ),
+); // 4
+console.log(
+  bucketFill(
+    [
+      ["G", "G", "O", "O"],
+      ["G", "Y", "B", "Y"],
+      ["B", "Y", "B", "Y"],
+      ["B", "Y", "B", "Y"],
+      ["G", "G", "G", "G"],
+    ],
+    "P",
+  ),
+); // 5
 console.log(
   bucketFill(
     [
