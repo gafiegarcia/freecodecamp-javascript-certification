@@ -1,4 +1,7 @@
-const DIRECTIONS = [-1, 0, 1].flatMap((i) => [-1, 0, 1].map((j) => [i, j]));
+const DIRECTIONS = [-1, 1].flatMap((n) => [
+  [0, n],
+  [n, 0],
+]);
 
 function bucketFill(grid, targetColor) {
   const targetGridString = grid
