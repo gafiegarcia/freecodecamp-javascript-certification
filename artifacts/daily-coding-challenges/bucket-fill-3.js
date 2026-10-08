@@ -14,22 +14,6 @@ function bucketFill(grid, targetColor) {
 
   while (queue.length > 0) {
     const current = queue.shift();
-    const stringifiedGrid = gridToString(current.grid);
-
-    if (stringifiedGrid === targetGridString) {
-      return current.clicks;
-    }
-
-    if (seen.has(stringifiedGrid)) {
-      console.log("current seen:", seen);
-      console.log(
-        `optimized this queue: click: ${current.clicks}, grid: ${stringifiedGrid}`,
-      );
-      continue;
-    }
-
-    seen.add(stringifiedGrid);
-
     const visited = new Set();
 
     for (let row = 0; row < current.grid.length; row++) {
@@ -63,7 +47,21 @@ function bucketFill(grid, targetColor) {
               (coloredGrid[rowToFill][colToFill] = color),
           );
 
+          const coloredGridString = gridToString(coloredGrid);
+
+          if (coloredGridString === targetGridString) {
+            return current.clicks + 1;
+          }
+          if (seen.has(coloredGridString)) {
+            console.log("current seen:", seen);
+            console.log(
+              `optimized this queue: click: ${current.clicks}, grid: ${coloredGridString}`,
+            );
+            continue;
+          }
+
           console.log("pushing:", current.clicks + 1, coloredGrid);
+          seen.add(coloredGridString);
           queue.push({ clicks: current.clicks + 1, grid: coloredGrid });
         }
       }
