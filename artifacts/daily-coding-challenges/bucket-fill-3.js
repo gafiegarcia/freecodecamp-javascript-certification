@@ -7,21 +7,27 @@ function bucketFill(grid, targetColor) {
   const targetGridString = grid
     .map((row) => targetColor.repeat(row.length))
     .join(":");
+  const initialGridString = gridToString(grid);
+  if (initialGridString === targetGridString) return 0;
+
   const colors = new Set(grid.flat().concat(targetColor));
   const seen = new Set();
-
-  const queue = [{ clicks: 0, grid: structuredClone(grid) }];
+  seen.add(initialGridString);
+  const queue = [{ clicks: 0, grid }];
 
   while (queue.length > 0) {
     const current = queue.shift();
     const visited = new Set();
+    console.log("grid to work on:");
+    console.table(current.grid);
 
     for (let row = 0; row < current.grid.length; row++) {
       for (let col = 0; col < current.grid[row].length; col++) {
         if (visited.has(indicesToString(row, col))) {
-          console.log("has visited");
+          console.log("has visited:", row, col);
           continue;
         }
+        console.log("next click:", current.clicks + 1, "processing:", row, col);
 
         const floodFillIndicesStrings = getFloodFillIndicesStrings(
           current.grid,
@@ -36,7 +42,6 @@ function bucketFill(grid, targetColor) {
 
         for (const color of colors) {
           if (currentColor === color) continue;
-          console.log(`current row: ${row}, col: ${col}`);
 
           const indicesToFill = floodFillIndicesStrings
             .values()
@@ -144,15 +149,15 @@ console.log(
     "O",
   ),
 ); // 2
-// console.log(
-//   bucketFill(
-//     [
-//       ["R", "G", "R", "G"],
-//       ["R", "G", "R", "G"],
-//       ["B", "B", "B", "B"],
-//       ["B", "B", "B", "B"],
-//       ["R", "G", "R", "G"],
-//     ],
-//     "Y",
-//   ),
-// ); // 3
+console.log(
+  bucketFill(
+    [
+      ["R", "G", "R", "G"],
+      ["R", "G", "R", "G"],
+      ["B", "B", "B", "B"],
+      ["B", "B", "B", "B"],
+      ["R", "G", "R", "G"],
+    ],
+    "Y",
+  ),
+); // 3
