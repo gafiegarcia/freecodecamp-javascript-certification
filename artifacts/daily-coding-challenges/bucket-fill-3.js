@@ -32,9 +32,9 @@ function bucketFill(grid, targetColor) {
           visited.add(indicesStr),
         );
         console.log("current visited:", visited);
+        const currentColor = current.grid[row][col];
 
         for (const color of colors) {
-          const currentColor = current.grid[row][col];
           if (currentColor === color) continue;
           console.log(`current row: ${row}, col: ${col}`);
 
