@@ -7,7 +7,6 @@ function bucketFill(grid, targetColor) {
   const targetGridString = grid
     .map((row) => targetColor.repeat(row.length))
     .join(":");
-  console.log(targetGridString);
   const colors = new Set(grid.flat().concat(targetColor));
   const seen = new Set();
 
@@ -15,19 +14,56 @@ function bucketFill(grid, targetColor) {
 
   while (queue.length > 0) {
     const current = queue.shift();
-    const currentGrid = structuredClone(current.grid);
+    const stringifiedGrid = gridToString(current.grid);
 
-    // if match targetGridString then return current.clicks
+    if (stringifiedGrid === targetGridString) {
+      return current.clicks;
+    }
 
-    for (let row = 0; row < currentGrid.length; row++) {
-      for (let col = 0; col < currentGrid[row].length; col++) {
+    if (seen.has(stringifiedGrid)) {
+      console.log(`could've optimized this queue: ${current}`);
+    }
+
+    const visited = new Set();
+
+    for (let row = 0; row < current.grid.length; row++) {
+      for (let col = 0; col < current.grid[row].length; col++) {
+        if (visited.has(indicesToString(row, col))) {
+          console.log("has visited");
+          continue;
+        }
+
+        const floodFillIndicesStrings = getFloodFillIndicesStrings(
+          grid,
+          row,
+          col,
+        );
+        floodFillIndicesStrings.forEach((indicesStr) =>
+          visited.add(indicesStr),
+        );
+        console.log("current visited:", visited);
+
         for (const color of colors) {
-          // TODO: push color clicks to queue
+          const currentColor = grid[row][col];
+          if (currentColor === color) continue;
+          console.log("for color", color);
+          console.log(`current row: ${row}, col: ${col}`);
+
+          const indicesToFill = floodFillIndicesStrings
+            .values()
+            .map(stringToIndices);
+          const coloredGrid = structuredClone(current.grid);
+          indicesToFill.forEach(
+            ([rowToFill, colToFill]) =>
+              (coloredGrid[rowToFill][colToFill] = color),
+          );
+
+          console.log("pushing:", coloredGrid);
+          seen.add(gridToString(coloredGrid));
+          queue.push({ clicks: current.clicks + 1, grid: coloredGrid });
         }
       }
     }
-
-    // add current grid to `seen` after pushing to queue
   }
 }
 
@@ -35,39 +71,67 @@ function gridToString(grid) {
   return grid.map((row) => row.join("")).join(":");
 }
 
-function floodFill(grid, row, col, fillColor) {
+function getFloodFillIndicesStrings(grid, row, col) {
   const currentColor = grid[row][col];
-  if (currentColor === fillColor) return; // TODO: check needed return value later
+  // inclusive of the current cell
+  const floodFillIndicesStrings = new Set([indicesToString(row, col)]);
+  const stack = [[row, col]];
 
-  for (const [rowDir, colDir] of DIRECTIONS) {
-    // TODO: fill to four directions
-    // only if not out of bounds and color === currentColor
+  while (stack.length > 0) {
+    const [currentRow, currentCol] = stack.pop();
+
+    for (const [rowDir, colDir] of DIRECTIONS) {
+      const nextRow = currentRow + rowDir;
+      const nextCol = currentCol + colDir;
+
+      if (
+        isOutOfBounds(grid, nextRow, nextCol) ||
+        grid[nextRow][nextCol] !== currentColor ||
+        floodFillIndicesStrings.has(indicesToString(nextRow, nextCol))
+      ) {
+        continue;
+      }
+
+      floodFillIndicesStrings.add(indicesToString(nextRow, nextCol));
+      stack.push([nextRow, nextCol]);
+    }
   }
+
+  return floodFillIndicesStrings;
 }
 
 function isOutOfBounds(grid, row, col) {
   return row < 0 || col < 0 || row >= grid.length || col >= grid[row].length;
 }
 
-console.log(
-  bucketFill(
-    [
-      ["B", "B"],
-      ["B", "B"],
-    ],
-    "R",
-  ),
-); // 1
-console.log(
-  bucketFill(
-    [
-      ["G", "G", "G"],
-      ["G", "G", "G"],
-      ["G", "G", "G"],
-    ],
-    "G",
-  ),
-); // 0
+function indicesToString(row, col) {
+  return `${row}:${col}`;
+}
+
+function stringToIndices(str) {
+  const { row, col } = str.match(/(?<row>\d+):(?<col>\d+)/).groups;
+  return [+row, +col];
+}
+
+// console.log(
+//   bucketFill(
+//     [
+//       ["B", "B"],
+//       ["B", "B"],
+//     ],
+//     "R",
+//   ),
+// ); // 1
+// console.log(
+//   bucketFill(
+//     [
+//       ["G", "G", "G"],
+//       ["G", "G", "G"],
+//       ["G", "G", "G"],
+//     ],
+//     "G",
+//   ),
+// ); // 0
 console.log(
   bucketFill(
     [
@@ -78,15 +142,15 @@ console.log(
     "O",
   ),
 ); // 2
-console.log(
-  bucketFill(
-    [
-      ["R", "G", "R", "G"],
-      ["R", "G", "R", "G"],
-      ["B", "B", "B", "B"],
-      ["B", "B", "B", "B"],
-      ["R", "G", "R", "G"],
-    ],
-    "Y",
-  ),
-); // 3
+// console.log(
+//   bucketFill(
+//     [
+//       ["R", "G", "R", "G"],
+//       ["R", "G", "R", "G"],
+//       ["B", "B", "B", "B"],
+//       ["B", "B", "B", "B"],
+//       ["R", "G", "R", "G"],
+//     ],
+//     "Y",
+//   ),
+// ); // 3
