@@ -30,7 +30,7 @@ null == 0    // false
 ## Arithmetic (`+`, `-`, `*`, `/`, `%`, `**`)
 
 - **`+` with a string on either side?** The string wins: convert the other side to a string and **join**.
-- **`+` otherwise, and every other arithmetic operator?** Convert both sides to numbers, then do the math.
+- **`+` with no string on either side, or any other arithmetic operator?** Convert both sides to numbers, then do the math.
 - Works **left to right, one pair at a time**, so order matters.
 - **`NaN` is contagious:** any math with `NaN` gives `NaN`.
 
