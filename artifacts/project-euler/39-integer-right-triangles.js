@@ -1,3 +1,4 @@
+// this is v2. first attempt is on the previous commit
 // rules first:
 // 1. a^2 + b^2 = c^2 (pythagorean)
 // 2. a + b > c (triangle rule) 3 + 4 > 7 ; b > c - a
@@ -13,31 +14,19 @@ const getMaxPropVal = (obj) => {
       maxProp = prop;
     }
   }
-  return maxProp;
+  return Number(maxProp);
 };
 
 function intRightTriangles(n) {
   const solutions = {};
-  const seenPair = {};
-  for (let a = 3; 2 * a ** 2 < n * n; a++) {
-    for (let b = a + 1; a ** 2 + b ** 2 <= n * n; b++) {
-      if (seenPair[a]?.includes(b)) continue;
+  for (let a = 3; a < n / 3; a++) {
+    for (let b = a + 1; b < (n - a) / 2; b++) {
       const c = getLongestEdge(a, b);
+      const perimeter = a + b + c;
+      if (perimeter > n) break;
       if (!Number.isInteger(c)) continue;
 
-      let [x, y, z] = [a, b, c];
-      while (x + y + z <= n) {
-        if (seenPair[x]) {
-          seenPair[x].push(y);
-        } else {
-          seenPair[x] = [y];
-        }
-        const perimeter = x + y + z;
-        solutions[perimeter] = (solutions[perimeter] ?? 0) + 1;
-        x += x;
-        y += y;
-        z += z;
-      }
+      solutions[perimeter] = (solutions[perimeter] ?? 0) + 1;
     }
   }
 
