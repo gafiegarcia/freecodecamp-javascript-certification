@@ -1,3 +1,5 @@
+const postsContainer = document.getElementById("posts-container");
+
 const forumLatest =
   "https://cdn.freecodecamp.org/curriculum/forum-latest/latest.json";
 const forumTopicUrl = "https://forum.freecodecamp.org/t/";
@@ -53,6 +55,39 @@ function forumCategory(categoryId) {
   return `<a class="category ${categoryClass}" href="${href}">${categoryName}</a>`;
 }
 
+function avatars(posters, users) {
+  const result = posters.reduce((imgElesHTML, poster) => {
+    const user = users.find((user) => user.id === poster.user_id);
+    const avatarTemplate = user.avatar_template.replace("{size}", 30);
+    const imgSrc = avatarTemplate.startsWith("/")
+      ? avatarUrl + avatarTemplate
+      : avatarTemplate;
+    return `${imgElesHTML}<img src="${imgSrc}" alt="${user.name}"/>`;
+  }, "");
+
+  return result;
+}
+
+function showLatestPosts(object) {
+  const users = object.users;
+  const topics = object.topic_list.topics;
+  postsContainer.innerHTML = topics.reduce(
+    (tableRowsHTML, topic) =>
+      `${tableRowsHTML}
+      <tr>
+        <td>
+          <a class="post-title" href="${forumTopicUrl}${topic.slug}/${topic.id}">${topic.title}</a>
+          ${forumCategory(topic.category_id)}
+        </td>
+        <td><div class="avatar-container">${avatars(topic.posters, users)}</div></td>
+        <td>${topic.posts_count - 1}</td>
+        <td>${viewCount(topic.views)}</td>
+        <td>${timeAgo(topic.bumped_at)}</td>
+      </tr>`,
+    "",
+  );
+}
+
 async function fetchData() {
   try {
     const response = await fetch(forumLatest);
@@ -62,10 +97,10 @@ async function fetchData() {
       );
     }
 
-    const data = await response.json();
-    console.log(data);
-    return data;
+    showLatestPosts(await response.json());
   } catch (e) {
     console.log(e);
   }
 }
+
+fetchData();

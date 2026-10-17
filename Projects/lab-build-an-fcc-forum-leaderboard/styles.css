@@ -20,6 +20,11 @@
   --golden-yellow: #f1ba33;
   --gold: #f9aa23;
   --green: #6bca6b;
+
+  --title-size: 1.75rem;
+  --title-margin: 40px;
+  --title-line-height: 1.2;
+  --nav-height: 45px;
 }
 
 body {
@@ -27,9 +32,24 @@ body {
   font-family: Lato, Arial, Helvetica, sans-serif;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: sticky;
+  top: calc(
+    -1 *
+      ((var(--title-margin) * 2) + var(--title-line-height) * var(--title-size))
+  );
+}
+
 nav {
   background-color: var(--dark-navy);
-  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
 }
 
 .fcc-logo {
@@ -40,12 +60,16 @@ nav {
 
 .title {
   /* default was 25px 0 */
-  margin: 40px 0;
+  margin-block: var(--title-margin);
+  font-size: var(--title-size);
+  line-height: var(--title-line-height);
   text-align: center;
   color: var(--light-grey);
 }
 
 .table-wrapper {
+  max-width: 1300px;
+  margin-inline: auto;
   padding: 0 25px;
   overflow-x: auto;
 }
@@ -69,12 +93,13 @@ table {
 
 th {
   /* change this to dark grey if not good */
-  border-bottom: 1px solid var(--darker-grey);
+  border-bottom: 2px solid var(--darker-grey);
   padding-bottom: 10px;
-  padding-inline: 5px;
   font-size: 1.3rem;
-  /* delete to let it be bold if not good */
-  font-weight: normal;
+}
+
+th:not(:first-child) {
+  padding-inline: 5px;
 }
 
 td:not(:first-child) {
@@ -147,6 +172,10 @@ td {
 }
 
 @media (max-width: 750px) {
+  :root {
+    --title-size: 1.5rem;
+  }
+
   .table-wrapper {
     padding: 0 15px;
   }
