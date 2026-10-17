@@ -6,7 +6,7 @@ In this lab, you will build a freeCodeCamp forum leaderboard that displays the l
 
 The API endpoint returns JSON in the following shape:
 
-```js
+```json
 {
   "users": [
     {
@@ -32,10 +32,7 @@ The API endpoint returns JSON in the following shape:
         "views": 542,
         "bumped_at": "2024-04-15T16:01:26.403Z",
         "category_id": 1,
-        "posters": [
-          { "user_id": 6 },
-          { "user_id": 576147 }
-        ]
+        "posters": [{ "user_id": 6 }, { "user_id": 576147 }]
       }
     ]
   }
