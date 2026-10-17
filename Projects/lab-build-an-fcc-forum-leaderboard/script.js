@@ -44,10 +44,13 @@ function viewCount(views) {
 }
 
 function forumCategory(categoryId) {
-  // don't know what to do yet if it it's *not* in allCategories, so storing it for now
-  const isInAllCategories = Object.hasOwn(allCategories, categoryId);
+  // may be missing, so value may be `undefined`
+  const currentCategory = allCategories[categoryId];
 
-  
+  const categoryName = currentCategory?.category ?? "General";
+  const categoryClass = `${currentCategory?.className ?? "general"}`;
+  const href = `${forumCategoryUrl}${categoryClass}/${categoryId}`;
+  return `<a class="category ${categoryClass}" href="${href}">${categoryName}</a>`;
 }
 
 async function fetchData() {
