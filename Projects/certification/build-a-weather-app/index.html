@@ -2,8 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Avatar_cloud.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body></body>
+  <body>
+    <video id="bg-video" src="" autoplay muted loop></video>
+    <main class="stack">
+      <div class="hero-container flex">
+        <div id="location">N/A</div>
+        <div class="flex main-temperature-container">
+          <img src="" alt="" id="weather-icon" />
+          <span id="main-temperature">N/A</span>
+        </div>
+        <div class="flex weather-min-max-container">
+          <span id="weather-main">N/A</span>
+          <div class="flex">
+            <span>H: <span id="max-temperature">N/A</span></span>
+            <span>L: <span id="min-temperature">N/A</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="conditions-container card">
+        <p id="summary"></p>
+        <span>Humidity</span>
+        <span id="humidity">N/A</span>
+        <span>Feels like</span>
+        <span id="feels-like">N/A</span>
+        <span>Wind Speed</span>
+        <span id="wind">N/A</span>
+        <span>Wind Gust</span>
+        <span id="wind-gust">N/A</span>
+      </div>
+      <div class="city-container">
+        <select name="city" id="city-selector">
+          <option value=""></option>
+          <option value="new york">New York</option>
+          <option value="los angeles">Los Angeles</option>
+          <option value="chicago">Chicago</option>
+          <option value="paris">Paris</option>
+          <option value="tokyo">Tokyo</option>
+          <option value="london">London</option>
+        </select>
+        <button id="get-weather-btn">Get Weather</button>
+      </div>
+    </main>
+    <footer>
+      <p>
+        Favicon by Google,
+        <a
+          rel="nofollow"
+          class="external free"
+          href="https://chromium.googlesource.com/chromium/src.git/+/master/ui/chromeos/resources"
+          >Chromium project</a
+        >,
+        <a
+          href="http://opensource.org/licenses/bsd-license.php"
+          title="BSD license"
+          >BSD</a
+        >,
+        <a href="https://commons.wikimedia.org/w/index.php?curid=39246853"
+          >Link</a
+        >
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
