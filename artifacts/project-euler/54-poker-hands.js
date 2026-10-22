@@ -6,55 +6,72 @@ const testArr = [
   "7C 5H KC QH JD AS KH 4C AD 4S",
 ];
 
-const VALUE_MAP = { A: 1, T: 10, J: 11, Q: 12, K: 13 };
+const VALUE_MAP = { A: 14, T: 10, J: 11, Q: 12, K: 13 };
 
 const valueOf = (val) => VALUE_MAP[val] ?? +val;
-const splitSuitVal = (card) => [valueOf(card[0]), card[1]];
+const splitValSuit = (cardStr) => [valueOf(cardStr[0]), cardStr[1]];
 
 function getTwoPlayersCards(roundHandsStr) {
   const hands = roundHandsStr.split(" ");
-  const p1Cards = hands.slice(0, 5).map(splitSuitVal);
-  const p2Cards = hands.slice(5).map(splitSuitVal);
+  const p1Cards = hands.slice(0, 5).map(splitValSuit);
+  const p2Cards = hands.slice(5).map(splitValSuit);
 
   return { p1Cards, p2Cards };
 }
 
-// TODO: delete when confirmed unused
-// const isAscending = (arr) => {
-//   for (let i = 1; i < arr.length; i++) {
-//     if ((arr[i] = arr[i - 1] !== 1)) return false;
-//   }
-//   return true;
-// };
+const isAscending = (arr) => {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] - arr[i - 1] !== 1) return false;
+  }
+  return true;
+};
 
 function getHandFacts(cards) {
   const sortedCards = cards.sort(([val1], [val2]) => val1 - val2);
-  const hasAce = sortedCards[0][0] === 1;
-  const highestCard = hasAce ? 14 : sortedCards.at(-1)[0];
+  const sortedValues = sortedCards.map(([value]) => value);
 
-  const values = [];
-  const sameValueCounts = {};
-  let isStraight = true;
-  let isFlush = true;
+  const isStraight =
+    isAscending(sortedValues) || sortedValues.join("") === "234514";
+  const isRoyal = isStraight && sortedValues[0] === 10;
+
   const firstSuit = sortedCards[0][1];
-  for (let i = 0; i < sortedCards.length; i++) {
-    const [val, suit] = sortedCards[i];
-    values.push(val);
-    sameValueCounts[val] = (sameValueCounts[val] ?? 0) + 1;
+  const isFlush = sortedCards.every(([, suit]) => suit === firstSuit);
 
-    if (i === 0) continue;
-    if (val - sortedCards[i - 1][0] !== 1) isStraight = false;
-    if (suit !== firstSuit) isFlush = false;
+  const valueOccurences = sortedValues.reduce((occurencesObj, value) => {
+    occurencesObj[value] = (occurencesObj[value] ?? 0) + 1;
+    return occurencesObj;
+  }, {});
+
+  const multiOccurenceValues = new Map();
+  const pairOrSameKindLeftovers = [];
+  for (const [value, occurence] of Object.entries(valueOccurences)) {
+    if (occurence < 2) {
+      pairOrSameKindLeftovers.push(+value);
+      continue;
+    }
+    (
+      multiOccurenceValues.get(occurence) ??
+      multiOccurenceValues.set(occurence, []).get(occurence)
+    ).push(+value);
   }
 
-  const isRoyal = values.join("") === "110111213";
-  // making sure high ace straight, which only happens in royal values, is accounted for.
-  isStraight = isStraight || isRoyal;
-  const sameKinds = Object.entries(sameValueCounts)
-    .filter(([, count]) => count > 1)
-    .map(([valStr, count]) => [+valStr, count]);
+  return {
+    sortedCards,
+    sortedValues,
+    isRoyal,
+    isStraight,
+    isFlush,
+    multiOccurenceValues,
+    pairOrSameKindLeftovers,
+  };
+}
 
-  return { sortedCards, highestCard, isRoyal, isStraight, isFlush, sameKinds };
+function getStraightHandValue(sortedValues) {
+  const firstValue = sortedValues[0];
+  const lastValue = sortedValues.at(-1);
+  // handling A 2 3 4 5 which gets sorted to [2,3,4,5,14]
+  if (firstValue === 2 && lastValue === 14) return sortedValues.at(-2);
+  return lastValue;
 }
 
 const HAND_RULES = [
@@ -67,85 +84,66 @@ const HAND_RULES = [
   {
     name: "Straight Flush",
     validator: ({ isStraight, isFlush }) => isStraight && isFlush,
-    value: ({ isRoyal, sortedCards }) =>
-      isRoyal || hasAce ? 14 : sortedCards.at(-1)[0],
+    value: ({ sortedValues }) => getStraightHandValue(sortedValues),
   },
   {
     name: "Four of a Kind",
-    validator: ({ sameKinds }) =>
-      sameKinds.findIndex(([, count]) => count === 4) !== -1,
-    value: ({ sameKinds }) => {
-      const value = sameKinds[0][0];
-      return value === 1 ? 14 : value;
-    },
+    validator: ({ multiOccurenceValues }) => multiOccurenceValues.has(4),
+    // index 0 because there can only be one Four of a Kind
+    value: ({ multiOccurenceValues }) => multiOccurenceValues.get(4)[0],
   },
   {
     name: "Full House",
-    validator: ({ sameKinds }) =>
-      sameKinds.findIndex(([, count]) => count === 3) !== -1 &&
-      sameKinds.findIndex(([, count]) => count === 2) !== -1,
-    value: ({ sameKinds }) => {
-      const value = sameKinds.find(([, count]) => count === 3)[0];
-      return value === 1 ? 14 : value;
-    },
+    validator: ({ multiOccurenceValues }) =>
+      multiOccurenceValues.has(3) && multiOccurenceValues.has(2),
+    // index 0 because there can only be one Three of a Kind
+    value: ({ multiOccurenceValues }) => multiOccurenceValues.get(3)[0],
   },
   {
     name: "Flush",
     validator: ({ isFlush }) => isFlush,
-    value: ({ highestCard }) => highestCard,
+    value: ({ sortedValues }) => sortedValues.at(-1),
   },
   {
     name: "Straight",
     validator: ({ isStraight }) => isStraight,
-    value: ({ highestCard }) => highestCard,
+    value: ({ sortedValues }) => getStraightHandValue(sortedValues),
   },
   {
     name: "Three of a Kind",
-    validator: ({ sameKinds }) =>
-      sameKinds.findIndex(([, count]) => count === 3) !== -1,
-    value: ({ sameKinds }) => {
-      const value = sameKinds.find(([, count]) => count === 3)[0];
-      return value === 1 ? 14 : value;
-    },
+    validator: ({ multiOccurenceValues }) => multiOccurenceValues.has(3),
+    // index 0 because there can only be one Three of a Kind
+    value: ({ multiOccurenceValues }) => multiOccurenceValues.get(3)[0],
   },
   {
     name: "Two Pairs",
-    validator: ({ sameKinds }) =>
-      sameKinds.findIndex(([, count]) => count === 2) !==
-      sameKinds.findLastIndex(([, count]) => count === 2),
-    value: ({ sameKinds }) => {
-      const firstValue = sameKinds.find(([, count]) => count === 2)[0];
-      const secondValue = sameKinds.findLast(([, count]) => count === 2)[0];
-      if (firstValue === 1 || secondValue === 1) return 14;
-      return Math.max(firstValue[0], secondValue[0]);
-    },
+    validator: ({ multiOccurenceValues }) =>
+      multiOccurenceValues.get(2)?.length === 2,
+    value: ({ multiOccurenceValues }) => multiOccurenceValues.get(2).at(-1),
   },
   {
     name: "One Pair",
-    validator: ({ sameKinds }) =>
-      sameKinds.length === 1 && sameKinds[0][1] === 2,
-    value: ({ sameKinds: [value] }) => (value === 1 ? 14 : value),
+    validator: ({ multiOccurenceValues }) => multiOccurenceValues.has(2),
+    value: ({ multiOccurenceValues }) => multiOccurenceValues.get(2)[0],
   },
   {
     name: "High Card",
     validator: () => true,
-    value: ({ highestCard }) => highestCard,
+    value: ({ sortedValues }) => sortedValues.at(-1),
   },
 ];
 
-function getRankAndRankValue(handFacts) {
-  const rank = HAND_RULES.findIndex(({ validator }) => validator(handFacts));
-  const rankValue = HAND_RULES[rank].value(handFacts);
-  return { rank, rankValue };
+function getHandRank(handFacts) {
+  return HAND_RULES.findIndex(({ validator }) => validator(handFacts));
 }
 
 // console.log(
 //   getHandFacts([
-//     [1, "s"],
-//     [10, "s"],
-//     [10, "d"],
+//     [14, "h"],
 //     [10, "h"],
-//     [10, "c"],
+//     [10, "h"],
+//     [10, "h"],
+//     [10, "h"],
 //   ]),
 // );
 
@@ -156,21 +154,53 @@ function pokerHands(arr) {
     const { p1Cards, p2Cards } = getTwoPlayersCards(roundHandsStr);
     const p1HandFacts = getHandFacts(p1Cards);
     const p2HandFacts = getHandFacts(p2Cards);
-    const { rank: p1Rank, rankValue: p1RankValue } =
-      getRankAndRankValue(p1HandFacts);
-    const { rank: p2Rank, rankValue: p2RankValue } =
-      getRankAndRankValue(p2HandFacts);
+    const p1Rank = getHandRank(p1HandFacts);
+    const p2Rank = getHandRank(p2HandFacts);
 
-    if (p1Rank < p2Rank) {
-      p1WinCount++;
-    } else if (p1Rank === p2Rank) {
-      if (p1RankValue > p2RankValue) {
+    if (p1Rank !== p2Rank) {
+      if (p1Rank < p2Rank) {
         p1WinCount++;
-      } else if (
-        p1RankValue === p2RankValue &&
-        p1HandFacts.highestCard > p2HandFacts.highestCard
-      ) {
+      }
+      // if p1Rank > p2Rank then only continue
+      continue;
+    }
+
+    // p1Rank === p2Rank
+    const sharedRule = HAND_RULES[p1Rank];
+    const p1HandValue = sharedRule.value(p1HandFacts);
+    const p2HandValue = sharedRule.value(p2HandFacts);
+
+    if (p1HandValue !== p2HandValue) {
+      if (p1HandValue > p2HandValue) {
         p1WinCount++;
+      }
+      continue;
+    }
+
+    // p1HandValue === p2HandValue
+    // special handling for Two Pairs
+    if (sharedRule.name === "Two Pairs") {
+      const p1LowerPairValue = p1HandFacts.multiOccurenceValues.get(2)[0];
+      const p2LowerPairValue = p2HandFacts.multiOccurenceValues.get(2)[0];
+      if (p1LowerPairValue !== p2LowerPairValue) {
+        if (p1LowerPairValue > p2LowerPairValue) {
+          p1WinCount++;
+        }
+        continue;
+      }
+    }
+
+    // proceed to compare highest leftovers of pairs/same kinds
+    // reverse in place as it is the last time the array will be used
+    const p1LeftoversDescending = p1HandFacts.pairOrSameKindLeftovers.reverse();
+    const p2LeftoversDescending = p2HandFacts.pairOrSameKindLeftovers.reverse();
+    for (let i = 0; i < p1LeftoversDescending.length; i++) {
+      if (p1LeftoversDescending[i] !== p2LeftoversDescending[i]) {
+        if (p1LeftoversDescending[i] > p2LeftoversDescending[i]) {
+          p1WinCount++;
+        }
+        // either player has won here if leftover value is not the same
+        break;
       }
     }
   }
