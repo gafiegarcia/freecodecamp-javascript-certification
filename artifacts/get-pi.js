@@ -20,8 +20,11 @@ async function getPi(...args) {
     const url = piAPI + searchParam;
     console.log(url);
     const response = await fetch(url);
-    if (!response.ok)
-      throw new Error(`status ${response.status} ${response.statusText}`);
+    console.log(response);
+    if (!response.ok) {
+      const reason = await response.text();
+      throw new Error(`status ${response.status} ${reason}`);
+    }
     const data = await response.json();
     console.log(data);
   } catch (e) {
@@ -29,4 +32,4 @@ async function getPi(...args) {
   }
 }
 
-getPi(0, 1001);
+getPi(1, 1000);
